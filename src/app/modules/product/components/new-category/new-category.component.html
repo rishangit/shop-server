@@ -1,0 +1,6 @@
+<ng-container *ngIf="formElementList != undefined" class="draw-element-wrp">
+  <ng-container *ngFor="let formElement of formElementList">
+      <ng-container *ngIf="formElement.type == formElementType.CUSTOME && formElement.ngTempateName == 'custom1' then custom1" > </ng-container>
+      <draw-elements *ngIf="formElement.type != formElementType.CUSTOME" [formElement]="formElement" [object]="productCatagory" (changeElementEvent)="eventChangeFormData($event)"></draw-elements>
+  </ng-container>
+</ng-container>

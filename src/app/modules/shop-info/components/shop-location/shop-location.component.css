@@ -1,0 +1,22 @@
+agm-map {
+    height: 500px;
+  }
+
+  .mapWrp{
+      position: relative;
+        width: 100%;
+  }
+
+  .Addressloading{
+    position: absolute;
+    right: 25px;
+    top: 12px;
+    font-size: 11px;
+  }
+
+  .mapSearchWrp{
+      position: absolute;
+      right: 10px;
+      z-index: 1;
+      top: 5px;
+  }

@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-info">
+      <div class="panel-heading"> Edit Product
+        <div class="pull-right">
+          <a data-perform="panel-dismiss">
+            <i class="ti-close" (click)="eventClose_click()"></i>
+          </a>
+        </div>
+      </div>
+      <div class="panel-wrapper collapse in" aria-expanded="true">
+        <div class="panel-body">
+          <ng-container *ngIf="formElementList != undefined" class="draw-element-wrp">
+            <ng-container *ngFor="let formElement of formElementList">
+              <ng-container *ngIf="formElement.type == formElementType.CUSTOME">
+                  <ng-container *ngIf="formElement.name == 'catagory' then catagory"></ng-container>
+                  <ng-container *ngIf="formElement.name == 'unit' then unit"></ng-container>
+                  <ng-container *ngIf="formElement.name == 'manufacture' then manufacture"></ng-container>
+              </ng-container>
+              <draw-elements *ngIf="formElement.type != formElementType.CUSTOME" [formElement]="formElement" [object]="product" (changeElementEvent)="eventChangeFormData($event)"></draw-elements>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #catagory>
+  <div class="form-group col-md-6">
+    <label class="control-label TPLableTxt">Catagory <span class="btn btn-info btn-rounded m-l-5 cat-new" (click)="eventAddNew_click()">New</span></label>
+    <div>
+      <div _ngcontent-c11="" class="input-group">
+        <input [(ngModel)]="categoryQuery" type="text" class="form-control TDTextInput" placeholder="Search..." (keydown.enter)="eventCategorySearch_click()"
+        />
+        <span class="input-group-addon dropdown-toggle" (click)="eventCategorySearch_click()" data-toggle="dropdown">
+        <i class="fa fa-search"></i>
+    </span>
+        <div class="dropdown-menu col-md-12" *ngIf="catagoryList.length > 0">
+          <!-- item -->
+          <div class="p-10 b-b" *ngFor="let catagory of catagoryList" (click)="eventCategory_click(catagory)">
+            <h5>{{catagory.nme}}</h5>
+            <span class="time">{{catagory.des}} </span>
+          </div>
+          <!-- end item -->
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #manufacture>
+  <div class="form-group col-md-6">
+    <label class="control-label TPLableTxt">Manufactured by <span class="btn btn-info btn-rounded m-l-5 cat-new" (click)="eventAddNewManufacture_click()">New</span></label>
+    <div>
+      <div _ngcontent-c11="" class="input-group">
+        <input [(ngModel)]="manufactureQuery" type="text" class="form-control TDTextInput" placeholder="Search..." (keydown.enter)="eventManufacturedSearch_click()"
+        />
+        <span class="input-group-addon dropdown-toggle" (click)="eventManufacturedSearch_click()" data-toggle="dropdown">
+        <i class="fa fa-search"></i>
+    </span>
+        <div class="dropdown-menu col-md-12" *ngIf="manufactureList.length > 0">
+          <!-- item -->
+          <div class="p-10 b-b" *ngFor="let manufacture of manufactureList" (click)="eventManufactured_click(manufacture)">
+            <h5><span>distributed by : </span>{{manufacture.dis}}</h5>
+            <span class="time"><span>distributed by : </span>{{manufacture.mfd}} </span>
+          </div>
+          <!-- end item -->
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #unit>
+    <div class="form-group col-md-3">
+      <label class="control-label TPLableTxt">Unit <span class="btn btn-info btn-rounded m-l-5 cat-new" (click)="eventAddNewUnit_click()">New</span></label>
+      <div>
+        <div _ngcontent-c11="" class="input-group">
+          <input [(ngModel)]="unitQuery" type="text" class="form-control TDTextInput" placeholder="Search..." (keydown.enter)="eventUnitSearch_click()"
+          />
+          <span class="input-group-addon dropdown-toggle" (click)="eventUnitSearch_click()" data-toggle="dropdown">
+          <i class="fa fa-search"></i>
+      </span>
+          <div class="dropdown-menu col-md-12" *ngIf="unitList.length > 0">
+            <!-- item -->
+            <div class="p-10 b-b" *ngFor="let unit of unitList" (click)="eventUnit_click(unit)">
+              <h5>{{unit.nme}} <span class="time"> ({{unit.des}})</span></h5>    
+            </div>
+            <!-- end item -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.clear-left{
+    clear: left;
+}
+
+.clear-right{
+    clear: right;
+}
+    
+.clear-both{
+    clear: both;      
+}
+
+
+.dropdown-menu h5{
+    margin-top: 0;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 16px;
+}
+
+label .btn{
+    height: 17px;
+    line-height: 3px;
+    font-size: 10px;
+    font-weight: 100;
+}

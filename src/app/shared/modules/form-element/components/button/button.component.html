@@ -1,0 +1,3 @@
+<button type="submit" class="btn waves-effect waves-light" [ngClass]="formElement.class[0] != undefined ? formElement.class[0]:''" (click)="eventBtn_click($event)">
+   <i class="fa fa-check" *ngIf="formElement.class[1] != undefined" [ngClass]="formElement.class[1] != undefined ?formElement.class[0]:''"></i> {{formElement.label}}
+  </button>

@@ -1,0 +1,9 @@
+<ng-container *ngIf="formElement != undefined">
+  <ng-container [ngSwitch]="formElement.type">
+    <app-title *ngSwitchCase="formElementType.TITLE" [formElement]="formElement"></app-title>
+    <app-button *ngSwitchCase="formElementType.BUTTON" [formElement]="formElement" (changeElementEvent)="changeElementEvent($event)"></app-button>
+    <app-text *ngSwitchCase="formElementType.TEXT" [formElement]="formElement" [object]="object" (changeElementEvent)="changeElementEvent($event)"></app-text>
+    <app-textarea *ngSwitchCase="formElementType.TEXTAREA" [formElement]="formElement" [object]="object" (changeElementEvent)="changeElementEvent($event)"></app-textarea>
+    <app-search-text *ngSwitchCase="formElementType.SEARCH_TEXT" [formElement]="formElement" [object]="object" (changeElementEvent)="changeElementEvent($event)"></app-search-text>
+  </ng-container>
+</ng-container>
