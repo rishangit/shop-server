@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../../../../shared/services/project.service';
 
 @Component({
   selector: 'app-home-navi',

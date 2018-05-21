@@ -18,7 +18,6 @@ export class ProductService {
 
 
   listProduct(searchParam: SearchParam): Observable<any> {
-    alert(JSON.stringify(searchParam))
     return this.httpCallService.post('listproduct',searchParam)
   }
 

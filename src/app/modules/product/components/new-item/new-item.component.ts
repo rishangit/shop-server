@@ -8,11 +8,11 @@ import { Slider, SearchParam, Res } from '../../../../shared/classes/project';
 import { NewCategoryComponent } from '../new-category/new-category.component';
 //Services
 import { ProductService } from '../../product.service';
-import { ProjectService } from '../../../../shared/services/project.service';
 import { FormElementType, FormElement, FormTitle, FormText, FormTextarea, FormButton, FormCustomElement } from '../../../../shared/modules/form-element/classes/formElement';
 import { NewUnitComponent } from '../new-unit/new-unit.component';
 import { NewManufactureComponent } from '../new-manufacture/new-manufacture.component';
 import { ResType } from '../../../../shared/classes/enums';
+import { SystemService } from '../../../../shared/services/system.service';
 
 @Component({
   selector: 'app-new-item',
@@ -56,7 +56,7 @@ export class NewItemComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private projectService: ProjectService,
+    private systemService: SystemService,
     private router: Router
   ) {
     this.newProduct();
@@ -92,7 +92,7 @@ export class NewItemComponent implements OnInit {
     slider.callBack = (obj?: any) => {
       this.slideCallBack(obj)
     }
-    this.projectService.eventSliderCallback.next(slider)
+    this.systemService.eventSliderCallback.next(slider)
   }
 
   eventClose_click() {
@@ -164,7 +164,7 @@ export class NewItemComponent implements OnInit {
     slider.callBack = (obj?: any) => {
       this.unitSlideCallBack(obj)
     }
-    this.projectService.eventSliderCallback.next(slider)
+    this.systemService.eventSliderCallback.next(slider)
   }
 
   eventUnit_click(unit: ProductUnit) {
@@ -209,7 +209,7 @@ export class NewItemComponent implements OnInit {
     slider.callBack = (obj?: any) => {
       this.manufactureSlideCallBack(obj)
     }
-    this.projectService.eventSliderCallback.next(slider)
+    this.systemService.eventSliderCallback.next(slider)
   }
 
   manufactureSlideCallBack(manufacture: Manufacture) {

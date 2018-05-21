@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { SliderBase } from '../../../../shared/modules/slider/classes/slider-base';
 import { FormElement, FormElementType, FormText, FormTitle, FormTextarea, FormButton, FormCustomElement } from '../../../../shared/modules/form-element/classes/formElement';
 import { ProductCatagory } from '../../../../shared/classes/common';
 import { ProductService } from '../../product.service';

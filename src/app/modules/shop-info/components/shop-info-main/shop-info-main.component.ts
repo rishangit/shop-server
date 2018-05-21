@@ -1,9 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
-
 import '../../../../../assets/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js'
 
+
 //services
-import { ProjectService } from '../../../../shared/services/project.service';
+import { SystemService } from '../../../../shared/services/system.service.js';
+
 
 declare var $: any;
 declare var wizard: any;
@@ -18,11 +19,14 @@ declare var swal: any;
 })
 export class ShopInfoMainComponent implements OnInit {
 
-  constructor(public projectService: ProjectService) {
-    this.projectService.subHeader.btnAddNew = true;
-    if (this.projectService.subscriptionAddNew != undefined)
-      this.projectService.subscriptionAddNew.unsubscribe();
-    this.projectService.subscriptionAddNew = this.projectService.eventAddNewCallback$.subscribe(object => {
+  constructor(
+    public systemService: SystemService,
+    
+  ) {
+    this.systemService.subHeader.btnAddNew = true;
+    if (this.systemService.subscriptionAddNew != undefined)
+      this.systemService.subscriptionAddNew.unsubscribe();
+    this.systemService.subscriptionAddNew = this.systemService.eventAddNewCallback$.subscribe(object => {
       this.addNewShop();
     })
   }

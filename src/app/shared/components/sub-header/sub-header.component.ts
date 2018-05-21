@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 //service
-import { ProjectService } from '../../services/project.service';
+import { SystemService } from '../../services/system.service';
+
 @Component({
   selector: 'app-sub-header',
   templateUrl: './sub-header.component.html',
@@ -9,7 +10,9 @@ import { ProjectService } from '../../services/project.service';
 })
 export class SubHeaderComponent implements OnInit {
 
-  constructor(public projectService: ProjectService) { }
+  constructor(
+    public systemService: SystemService
+  ) { }
 
   ngOnInit() {
     
@@ -22,6 +25,6 @@ export class SubHeaderComponent implements OnInit {
 
   evntAddNew_click(){
     let obj:any = {}
-    this.projectService.eventAddNewCallback.next(obj)
+    this.systemService.eventAddNewCallback.next(obj)
   }
 }

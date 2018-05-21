@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app.routes'
 import { AppComponent } from './app.component';
 
 //Service
-import { ProjectService } from './shared/services/project.service';
+import { SystemService } from './shared/services/system.service';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { ProjectService } from './shared/services/project.service';
     AppComponent,
     
   ],
-  providers: [ProjectService],
+  providers: [SystemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

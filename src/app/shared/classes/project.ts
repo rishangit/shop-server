@@ -48,6 +48,16 @@ export class Slider {
     callBack?: Function
 }
 
+export class SliderParam {
+    show?: boolean = false;
+    title?: string = "Slider window";
+    width?: number = 50; //%
+    top?: number = 0;//px
+    component?:any;
+    object?: any;
+    callBack?: Function
+}
+
 export class SubHeader {
     btnAddNew?: boolean = false;
 }
